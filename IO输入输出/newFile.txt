@@ -1,0 +1,32 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/**
+ * FileInputStrem/FileOutputStream
+ * @author Administrator
+ *
+ */
+public class FileOutputStreamTest {
+	public static void main(String[] args) throws IOException {
+		try {
+			FileInputStream fis = new FileInputStream("D:\\JAVA文件\\IO输入输出\\src\\FileOutputStreamTest.java");
+			FileOutputStream fos = new FileOutputStream("newFile.txt");
+			{
+				byte[] bbuf = new byte[32];
+				int hasread = 0;
+				while((hasread = fis.read(bbuf)) > 0)
+				{
+					fos.write(bbuf , 0 , hasread); 
+				}
+			}
+					
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+}
